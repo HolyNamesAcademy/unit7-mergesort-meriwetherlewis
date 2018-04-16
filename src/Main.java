@@ -14,7 +14,19 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void selectionSort(ArrayList<Integer> arrayList) {
-        throw new UnsupportedOperationException("SelectionSort() has not been implemented yet");
+       ArrayList<Integer> sorted=null;
+       int min=arrayList.get(0);
+       int holder=0;
+       for(int i=0; i<=arrayList.size();i++)
+       {
+         if(arrayList.get(i)<min)
+         {
+             min=arrayList.get(i);
+             holder=i;
+         }
+       }
+       arrayList.set(0,arrayList.get(holder));
+       sorted.set(j,arrayList.get(holder));// CB
     }
 
     /**
@@ -24,7 +36,14 @@ public class Main {
      * @param value the value we are looking for in the array list
      */
     public static int linearSearch(ArrayList<Integer> arrayList, int value) {
-        throw new UnsupportedOperationException("LinearSearch() has not been implemented yet");
+       for(int i=0; i<arrayList.size();i++)
+       {
+           if(arrayList.get(i)==value)
+           {
+               return i;
+           }
+           return -1;
+       }
     }
 
     /**
@@ -35,7 +54,23 @@ public class Main {
      * @param value the value we are looking for in the array list
      */
     public static int binarySearch(ArrayList<Integer> arrayList, int value) {
-        throw new UnsupportedOperationException("LinearSearch() has not been implemented yet");
+        int lbound=0;
+        int ubound=arrayList.size()-1;
+       if(arrayList.size()==0) {
+           return -1;
+       }
+       for(int i=0;i<arrayList.size();i++) {
+           if (arrayList.get(arrayList.size() / 2) == value) {
+               return arrayList.size() / 2;
+           }
+           if (arrayList.get(arrayList.size() / 2) > value) {
+               ubound = (arrayList.size() / 2) - 1;
+           }
+           if (arrayList.get(arrayList.size() / 2) > value) {
+               lbound = (arrayList.size() / 2) + 1;
+           }
+       }
+       return -1;
     }
 
     /**
